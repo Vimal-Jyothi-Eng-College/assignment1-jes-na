@@ -1,0 +1,17 @@
+result = []
+
+for num in range(100, 401):
+    n = num
+    valid = True
+    
+    while n > 0:
+        digit = n % 10
+        if digit % 2 != 0:
+            valid = False
+            break
+        n = n // 10
+    
+    if valid:
+        result.append(str(num))
+
+print(",".join(result))

@@ -1,0 +1,30 @@
+year = int(input("Enter year: "))
+
+months = ["January", "February", "March", "April", "May", "June",
+          "July", "August", "September", "October", "November", "December"]
+
+days = [31, 28, 31, 30, 31, 30,
+        31, 31, 30, 31, 30, 31]
+
+if (year % 400 == 0) or (year % 4 == 0 and year % 100 != 0):
+    days[1] = 29
+
+start_day = 0  # 0 = Sunday 
+
+for i in range(12):
+    print("\n", months[i], year)
+    print("Sun Mon Tue Wed Thu Fri Sat")
+    
+    # Print spaces
+    for s in range(start_day):
+        print("    ", end="")
+    
+    # Print days
+    for d in range(1, days[i] + 1):
+        print(f"{d:3}", end=" ")
+        start_day += 1
+        if start_day == 7:
+            start_day = 0
+            print()
+    
+    print()
